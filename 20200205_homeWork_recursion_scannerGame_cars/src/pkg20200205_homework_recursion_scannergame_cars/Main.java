@@ -28,6 +28,12 @@ public class Main {
         System.out.println("");
         System.out.println("......................");
 
+        System.out.println("GENERATION OF 'RANDOM' MATRIX");
+//        randomMatrix(5, 20);
+        randomIntMatrix(5, 20);
+        System.out.println("");
+        System.out.println("......................");
+
         System.out.println("DETERMINANT");
         int[][] squaredArr4 = {
             {5, 2, 3, 4},
@@ -56,7 +62,9 @@ public class Main {
         };
 
 //        determinant(squaredArr3);
-        System.out.println("Determinant of given matrix is: " + determinant(squaredArr4));
+
+//        System.out.println("Determinant of given matrix is: " + determinant(squaredArr4));
+        System.out.println("Determinant of given matrix is: " + determinant(randomIntMatrix(4, 100)));
 
         System.out.println("");
         System.out.println("......................");
@@ -64,7 +72,7 @@ public class Main {
         System.out.println("CARS");
         double[] dist = {0, 0, 0, 0, 0, 0, 0};
         char[] cars = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
-        cars(cars, dist, 150);
+//        cars(cars, dist, 150);
 
         System.out.println("");
         System.out.println("......................");
@@ -244,6 +252,41 @@ public class Main {
             System.out.println("");
         }
         System.out.println("THE WINNER IS: " + cars[0]);
+    }
+
+    public static double[][] randomMatrix(int l, double maxNum) {
+
+        double[][] arr = new double[l][l];
+
+        for (int i = 0; i < l; i++) {
+            for (int j = 0; j < l; j++) {
+                arr[i][j] = Math.random() * maxNum;
+                arr[i][j] *= (Math.random() > 0.5) ? 100 : -100;
+                arr[i][j] = Math.round(arr[i][j]);
+                arr[i][j] = arr[i][j] / 100;
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
+        return arr;
+    }
+
+    public static int[][] randomIntMatrix(int l, double maxNum) {
+
+        int[][] arr = new int[l][l];
+        double a = 0;
+        for (int i = 0; i < l; i++) {
+            for (int j = 0; j < l; j++) {
+                a = Math.round(Math.random() * maxNum);
+                arr[i][j] = (int) a;
+                arr[i][j] *= (Math.random() > 0.5) ? 1 : -1;
+//                System.out.print(arr[i][j] + " ");
+            }
+//            System.out.println("");
+        }
+//        System.out.println("");
+        return arr;
     }
 
 }

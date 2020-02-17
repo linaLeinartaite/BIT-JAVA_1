@@ -43,9 +43,9 @@ public class CarRace {
             for (int i = 0; i < allCars.length; i++) {
                 double step = Math.random();
                 if (step < 0.3) {
-                    allCars[i].slowDown(Math.random() * 10);
+                    allCars[i].slowDown(Math.random() * 11); //!! nes generuoja skaiciu iki vieneto, bet vieneto neiskaitant !!
                 } else {
-                    allCars[i].speedUp(Math.random() * 15);
+                    allCars[i].speedUp(Math.random() * 16); //!! 
                 }
                 //ir tada turi pajudeti per toki atstuma jei stabdo tai greitis turi pasikeist per  1-10; jei gazuoja tai per 1-15;
                 allCars[i].go();

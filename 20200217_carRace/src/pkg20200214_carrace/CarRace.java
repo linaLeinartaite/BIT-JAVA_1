@@ -50,8 +50,7 @@ public class CarRace {
                 //ir tada turi pajudeti per toki atstuma jei stabdo tai greitis turi pasikeist per  1-10; jei gazuoja tai per 1-15;
                 allCars[i].go();
             }
-            System.out.println("..................");
-
+           
 //3.SUrusiuoti
             Car[] allCarsTemp = new Car[allCars.length];
 
@@ -62,14 +61,14 @@ public class CarRace {
                     allCars[i] = allCarsTemp[i];
                     allCars[i + 1] = allCarsTemp[i + 1];
                     i = -1;
-                }
-//             
+                }//             
             }
 
 //        allCars = allCarsTemp;
             //4.Atspausdint
             for (int i = 0; i < allCars.length; i++) {
-                System.out.println(allCars[i].toString());
+//                System.out.println(allCars[i].toString());
+                 System.out.printf("name:%s speed:%.0f distance:%.0f \n", allCars[i].getName(), allCars[i].getSpeed(), allCars[i].getDistance() );
             }
 
             System.out.println("..................");

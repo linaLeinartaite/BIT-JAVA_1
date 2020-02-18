@@ -25,32 +25,32 @@ public class Main {
 
 
          */
-
-        ToBuy[] todayProducts = {
-            new ToBuy("milk"),
-            new ToBuy("bread"),
-            new ToBuy("soup"),
-            new ToBuy("fish")
-        };
         MyList toBuyToDay = new MyList();
 
-        ToBuy meat = new ToBuy("meat");
-        ToBuy milk = new ToBuy("milk");
-        ToBuy bread = new ToBuy("bread");
         ToBuy soup = new ToBuy("soup");
         ToBuy fish = new ToBuy("fish");
-        toBuyToDay.add(meat);
-        toBuyToDay.add(milk);
-        toBuyToDay.add(bread);
+
+        toBuyToDay.add(new ToBuy("meat"));
+        toBuyToDay.add(new ToBuy("milk"));
+        toBuyToDay.add(new ToBuy("bread"));
+
+
+        System.out.print("toBuyToDay: ");
+        for (int i = 0; i < toBuyToDay.list.length; i++) {
+            System.out.print(" " + toBuyToDay.list[i]);
+        }
+        System.out.println("");
+        
         toBuyToDay.add(soup);
         toBuyToDay.add(fish);
+
         toBuyToDay.remove(6);
         toBuyToDay.remove(3);
         toBuyToDay.set(7, soup);
         toBuyToDay.get(3);
         toBuyToDay.size();
-//        System.out.println("todayProducts" + todayProducts);
-        System.out.println("toBuyToDay: ");
+        
+        System.out.print("toBuyToDay: ");
         for (int i = 0; i < toBuyToDay.list.length; i++) {
             System.out.print(" " + toBuyToDay.list[i]);
         }

@@ -61,7 +61,7 @@ public class MyList {
     }
 
     public Object get(int index) {
-        System.out.println("The item with index " + index + " is " + list[index] +".");
+        System.out.println("Item with index " + index + " is " + list[index] +".");
         return list[index];
     }
 

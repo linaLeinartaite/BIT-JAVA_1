@@ -12,13 +12,15 @@ package pkg20200218_mylist;
 public class MyList {
 
     int l;
-//    Object[] list = new Object[0];
     Object[] list;
 
-//    public MyList(Object[] list) {
-//        this.list = list;
-//        this.l = list.length;
-//    }
+    //if you want to start with previously created list
+    public MyList(Object[] list) {
+        this.list = list;
+        this.l = list.length;
+    }
+
+    //if you want to start with empty list
     public MyList() {
         this.list = new Object[0];
         this.l = list.length;
@@ -36,8 +38,8 @@ public class MyList {
     }
 
     public void remove(int index) {
-        if (index > l) {
-            System.out.println("There is no item with index: " + index + "!");
+        if (index > l-1 || index<0) {
+            System.out.println("There is no item with index " + index + " in "+ list[0].getClass().getSimpleName() +" list!");
         } else {
             Object[] listT = new Object[l - 1];
             l = l - 1;
@@ -54,19 +56,24 @@ public class MyList {
 
     public void set(int index, Object inO) {
         if (index > l - 1 || index < 0) {
-            System.out.println("There is no item with index: " + index + "!");
+            System.out.println("There is no item with index " + index + " in "+ list[0].getClass().getSimpleName() +" list!");
         } else {
             list[index] = inO;
         }
     }
 
     public Object get(int index) {
-        System.out.println("Item with index " + index + " is " + list[index] +".");
-        return list[index];
+        if (index > l - 1 || index < 0) {
+            System.out.println("There is no item with index " + index + " in "+ list[0].getClass().getSimpleName() +" list!");
+            return index;
+        } else {
+            System.out.println("Item with index " + index + " is " + list[index] + ".");
+            return list[index];
+        }
     }
 
     public int size() {
-        System.out.println("Length of " +list[0].getClass().getSimpleName() +" list is " + list.length +".");
+        System.out.println("Length of " + list[0].getClass().getSimpleName() + " list is " + list.length + ".");
         return list.length;
     }
 

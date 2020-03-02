@@ -5,16 +5,21 @@
  */
 package pkg20200229_snails;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Lina
  */
 public class SnailsMain {
+
     /**
      * @param args the command line arguments
      */
-    public static final int finish =50;
-    public static final int noOfSnails =8;
+    public static final int finish = 1000;
+    public static final int noOfSnails = 8;
+
     public static void main(String[] args) {
 
         Snail s1 = new Snail("snail-1");
@@ -27,6 +32,7 @@ public class SnailsMain {
         Snail s8 = new Snail("snail-8");
 
         class SnailRace implements Runnable {
+
             @Override
             public void run() {
                 s1.start();
@@ -37,26 +43,37 @@ public class SnailsMain {
                 s6.start();
                 s7.start();
                 s8.start();
-            }          
-        }
-        SnailRace rase1 = new SnailRace();       
-        rase1.run();
 
+                while (true) {
+                    synchronized (Snail.class) {
+                        if (Snail.times.size() == noOfSnails) {
+                            break;
+                        }
+                    }
+                }
+                System.out.println("Snail winner is: " + Snail.winner);
+            }
+        }
+        SnailRace rase1 = new SnailRace();
+        Thread go = new Thread(rase1);
+
+        go.start();
+//        try {
+//            go.join();
+//
+//        } catch (InterruptedException ex) {
+//            //Ignore
+//        }
 //        class SnailWinner implements Runnable {
 //
 //            @Override
-//            public void run() {              
-//                System.out.println("The Winner snail is: " + Snail.times);
+//            public void run() {
+//                System.out.println("The Winner snail is: " + Snail.winner);
 //            }
 //        }
-// 
-//        
 //        SnailWinner winner = new SnailWinner();
-//        winner.run();
-//        
-       
-
-              
+//        Thread done = new Thread(winner);
+//        done.start();
 
     }
 

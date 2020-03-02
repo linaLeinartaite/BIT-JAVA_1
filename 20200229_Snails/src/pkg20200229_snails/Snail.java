@@ -17,7 +17,7 @@ public class Snail extends Thread {
 
     protected String name;
     double dist;
-    public static List times = new ArrayList();
+    public static final List times = new ArrayList();
     public static String winner;
     Date started;
 
@@ -30,26 +30,26 @@ public class Snail extends Thread {
     @Override
     public void run() {
         Date started = new Date();
-        int sl;
+      
         while (dist <= SnailsMain.finish) {
             //moves 1-5cm            
-            dist += (Math.random() * 5) + 1;
+            dist +=(int) (Math.random() * 5) + 1;
             System.out.println("Snail " + name + " is at: " + dist + "cm.");
 
             //sleeps 10-20ms
             if (dist < SnailsMain.finish) {
-                sl = (int) (Math.random() * 1000) + 10;
+              
                 try {
-                    Thread.sleep(sl);
-//                System.out.println("Snail " + name + " will sleap for " + sl + "ms.");
+                    Thread.sleep((int) (Math.random() * 10) + 10);
                 } catch (InterruptedException ex) {
 //Ignore
                 }
             }
         }
         Date finished = new Date();
+       synchronized(times){                         //ar gliu taip daryti???
         times.add((finished.getTime() - started.getTime()));
-        
+       } 
         System.out.println("Snail " + name + " " + "reached finish!");
 
         if (times.size() == 1) {
